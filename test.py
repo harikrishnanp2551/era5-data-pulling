@@ -35,5 +35,10 @@ request = {
     "area": [26.1, 89.8, 25, 92.8]
 }
 
+# Create a descriptive filename
+custom_filename = f"era5-land_climate-data_Oct2024_{request['area'][0]}-{request['area'][3]}.grib"
+
+# Download with custom filename
 client = cdsapi.Client()
-client.retrieve(dataset, request).download()
+client.retrieve(dataset, request).download(custom_filename)
+print(f"File downloaded as: {custom_filename}")
